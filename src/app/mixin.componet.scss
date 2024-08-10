@@ -1,0 +1,8 @@
+
+
+@mixin disFlexSpBeTw($ai:center, $jc:center){
+    display: flex;
+    align-items: $ai;
+    justify-content: $jc;
+}
+

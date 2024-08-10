@@ -1,0 +1,7 @@
+<div class="games-list"> <h1>hallo</h1> <ul>
+    @for (item of  (this.gameService.games$| async); track item) {
+      <li style="color: white;">
+        {{ item['myGame'] }}
+      </li>
+    }
+  </ul></div>
