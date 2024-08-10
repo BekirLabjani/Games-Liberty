@@ -5,4 +5,5 @@ export interface Game {
   title:string;
   content:string;
   amount:number;
+  gameType: string;
 }

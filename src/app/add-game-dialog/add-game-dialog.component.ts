@@ -1,4 +1,4 @@
-import { Component, inject, model, signal} from '@angular/core';
+import { Component, inject, model, signal, ViewChild, ElementRef } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {
@@ -27,16 +27,37 @@ import {MatInputModule} from '@angular/material/input';
     MatDialogClose,
   ],
   templateUrl: './add-game-dialog.component.html',
-  styleUrl: './add-game-dialog.component.scss'
+  styleUrls: ['./add-game-dialog.component.scss']  // Korrektur hier
 })
 export class AddGameDialogComponent {
   readonly dialogRef = inject(MatDialogRef<AddGameDialogComponent>);
+  @ViewChild('videoElement') videoElement!: ElementRef;
 
-
+  title = '';
+  description = '';
 constructor() {
 
 }
+
+closeDialog() {
+
+}
+
+addMyGame() {
+  this.dialogRef.close();
+}
+
+startCamera() {
+  navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+          const video: HTMLVideoElement = this.videoElement.nativeElement;
+          video.srcObject = stream;
+          video.play();
+      })
+      .catch(err => {
+          console.error("Error accessing the camera: ", err);
+      });
+}
   onNoClick(): void {
-    this.dialogRef.close();
   }
 }

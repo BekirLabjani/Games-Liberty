@@ -1,12 +1,24 @@
-<h2 mat-dialog-title>Hi {{data.name}}</h2>
-<mat-dialog-content>
-  <p>What's your favorite animal?</p>
-  <mat-form-field>
-    <mat-label>Favorite Animal</mat-label>
-    <input matInput [(ngModel)]="animal" />
-  </mat-form-field>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="animal()" cdkFocusInitial>Ok</button>
-</mat-dialog-actions>
+<div class="add_dialog_wrapper">
+  <div class="input_wrapper">
+      <p>Title</p>
+      <input [(ngModel)]="title" type="text" placeholder="Gib den title des Spiels ein">
+  </div>
+  <div class="input_wrapper">
+      <p>Description</p>
+      <textarea [(ngModel)]="description" cols="30" rows="10"></textarea>
+  </div>
+
+  <!-- Video-Element für die Kamera-Vorschau -->
+  <div class="camera_wrapper">
+      <video #videoElement width="320" height="240" autoplay></video>
+      <button (click)="startCamera()">Activate Camera</button>
+  </div>
+
+  <div class="btn_wrapper">
+      <button class="btn emptyBtn" (click)="closeDialog()">Cancel</button>
+      <button class="btn fullBtn" (click)="addMyGame()">add note</button>
+  </div>
+  <div class="test"><h1>233
+    
+  </h1></div>
+</div>

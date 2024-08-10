@@ -1,7 +1,18 @@
-<div class="games-list"> <h1>hallo</h1> <ul>
-    @for (item of  (this.gameService.games$| async); track item) {
-      <li style="color: white;">
-        {{ item['myGame'] }}
-      </li>
+<div class="games-list">
+  <h1>hallo</h1>
+  <ul>
+    @for (item of (this.gameService.games$| async); track item) {
+    <div class="page-from-games">
+      <div class="game-card">
+        <div class="game-img"><img src="assets/img/logos/Game Liberty.png" alt=""></div>
+        <div class="game information">
+          <h3>tite</h3>
+          <span>Content</span>
+          <span><b>Game Type</b></span>
+          <span>Anzahl</span>
+        </div>
+      </div>
+    </div>
     }
-  </ul></div>
+  </ul>
+</div>
